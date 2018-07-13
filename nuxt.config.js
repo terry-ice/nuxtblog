@@ -3,7 +3,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'myblog',
+    title: 'terrycblog',
     meta: [{
         charset: 'utf-8'
       },
@@ -56,5 +56,9 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  css: [
+    '~assets/css/bootstrap.css',
+    '~assets/css/style.scss'
+  ]
 }

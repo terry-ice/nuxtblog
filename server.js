@@ -2,17 +2,11 @@ import express from 'express'
 import { Nuxt, Builder } from 'nuxt'
 import bodyParser from 'body-parser';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-
-// import schema from '../apollo/graphql/schema';
 import schema from './apollo/schema'
-
 const app = express()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
-
 app.set('port', port)
-
-
 
 app.use('/graphqli', bodyParser.json(), graphqlExpress({ schema }));
 app.use('/graphql', graphiqlExpress({ endpointURL: '/graphqli' }));
