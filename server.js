@@ -5,7 +5,7 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import schema from './apollo/schema'
 const app = express()
 const host = process.env.HOST || '127.0.0.1'
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3002
 app.set('port', port)
 
 app.use('/graphqli', bodyParser.json(), graphqlExpress({ schema }));

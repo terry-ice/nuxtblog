@@ -39,6 +39,21 @@ module.exports = {
       default: "~/apollo/default.js"
     }
   },
+  modules: [
+    '@nuxtjs/axios', '@nuxtjs/proxy'
+  ],
+  proxy: [
+    [
+      '/api', {
+        target: 'http://localhost:8000',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    ]
+  ],
   build: {
     /*
      ** Run ESLint on save

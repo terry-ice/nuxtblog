@@ -9,17 +9,13 @@ const options = {
   }
 };
 
-export default function fetchData(url, data, method,token) {
-  let queryUrl = '/api/' + url;
+export default function fetchData(url, data, method) {
+  let queryUrl = 'http://localhost:3002/api/' + url;
   if ((!method || method === 'GET') && data) {
     queryUrl = `${queryUrl}?${Object
       .keys(data)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       .join('&')}`;
-  }
-  if(token){
-    options.headers.Authorization = `jwt ${token}` 
-    options.method = method
   }
   return new Promise((resolve, reject) => {
     let opt = {
@@ -27,8 +23,10 @@ export default function fetchData(url, data, method,token) {
       method,
       body: JSON.stringify(data)
     };
+    console.log(queryUrl,'queryUrl');
     if (!method || method === 'GET') delete opt.body;
     fetch(queryUrl, opt).then(res => {
+      console.log(res,'res')
       if (res.status == 200 || res.status == 201) {
         if (!res.json) {
           reject({
