@@ -1,36 +1,16 @@
 <template>
   <div>
-  <!-- <div id="preloader-container">
-    <div id="preloader-wrap">
-      <div id="preloader"></div>
-    </div>
-  </div> -->
   <header class="tada-container">
-  
-  
-    <!-- LOGO -->    
-    <div class="logo-container">
-        <a href="index.html"><img src="~assets/img/logo.png" alt="logo" ></a>
-          <div class="tada-social">
-            <a href="#"><i class="icon-facebook5"></i></a>
-              <a href="#"><i class="icon-twitter4"></i></a>
-              <a href="#"><i class="icon-google-plus"></i></a>
-              <a href="#"><i class="icon-vimeo4"></i></a>
-              <a href="#"><i class="icon-linkedin2"></i></a>
-          </div>
-      </div>
     <!-- MENU DESKTOP -->
     <nav class="menu-desktop menu-sticky">
           <ul class="tada-menu">
-                   <li><a href="#" class="active">HOME <i class="icon-arrow-down8"></i></a></li>
+                   <li><a href="/" class="active">HOME <i class="icon-arrow-down8"></i></a></li>
                   <li><a href="#">ARTICLES<i class="icon-arrow-down8"></i></a></li> 
                   <li><a href="/about">ABOUT ME</a></li>
                   <li><a href="">CONTACT</a></li>
                   <li><a href="">APP</a></li>
           </ul>
       </nav>
-      
-      
       <!-- MENU MOBILE -->  
       <div class="menu-responsive-container"> 
           <div class="open-menu-responsive">|||</div> 
@@ -83,14 +63,14 @@
       
       
       <!-- SEARCH -->
-      <div class="tada-search">
+      <!-- <div class="tada-search">
     <form>
             <div class="form-group-search">
                 <input type="search" class="search-field" placeholder="Search and hit enter...">
                 <button type="submit" class="search-btn"><i class="icon-search4"></i></button>
             </div>
           </form>
-      </div>
+      </div> -->
       
       
 <!-- 

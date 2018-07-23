@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-// import config from '../config'
+import config from '../config'
 const options = {
   method: 'GET',
   credentials: 'same-origin',
@@ -8,9 +8,8 @@ const options = {
     'Content-Type': 'application/json',
   }
 };
-
 export default function fetchData(url, data, method) {
-  let queryUrl = 'http://localhost:3002/api/' + url;
+  let queryUrl = `${config.api.serverUrl}/api/${url}`;
   if ((!method || method === 'GET') && data) {
     queryUrl = `${queryUrl}?${Object
       .keys(data)
@@ -23,10 +22,8 @@ export default function fetchData(url, data, method) {
       method,
       body: JSON.stringify(data)
     };
-    console.log(queryUrl,'queryUrl');
     if (!method || method === 'GET') delete opt.body;
     fetch(queryUrl, opt).then(res => {
-      console.log(res,'res')
       if (res.status == 200 || res.status == 201) {
         if (!res.json) {
           reject({

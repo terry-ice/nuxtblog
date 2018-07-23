@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <Header></Header>
-    <section class="tada-container content-posts">
+    <section class="tada-container content-posts post">
       <nuxt/>
       <Right></Right>
       <div class="clearfix"></div>

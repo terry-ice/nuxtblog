@@ -1,10 +1,8 @@
 import axios from 'axios'
 import qs from 'qs'
-// import Cookies from 'js-cookie'
 // axios 配置
 axios.defaults.timeout = 5000
 axios.defaults.baseURL = '/api'
-axios.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8'
 // POST传参序列化
 axios
   .interceptors
