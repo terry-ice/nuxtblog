@@ -1,0 +1,13 @@
+/*
+ *
+ * 留言表情雨
+ *
+*/
+
+import Emoji233333 from 'emoji-233333'
+
+if (process.browser) {
+  window.Emoji233333 = Emoji233333
+}
+
+export default {}

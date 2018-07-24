@@ -29,7 +29,7 @@ const paragraphParse = text => `<p>${text}</p>`
 
 // 对连接进行权重防流和新窗处理
 const linkParse = (href, title, text) => {
-  const isSelf = href.includes('surmon.me')
+  const isSelf = href.includes('592php.com')
   const textIsImage = text.includes('<img')
   return `<a href="${href}" 
              target="_blank" 
@@ -42,7 +42,7 @@ const linkParse = (href, title, text) => {
 const imageParse = (src, title, alt) => {
   src = src.replace(/^http:\/\//ig, "/proxy/")
   return `<img src="${src}" 
-               title="${title || alt || 'surmon.me'}" 
+               title="${title || alt || '592php.com'}" 
                alt="${alt || title || src}" 
                onclick="if(window.utils) window.utils.openImgPopup('${src}')"/>`.replace(/\s+/g, ' ').replace('\n', '')
 }

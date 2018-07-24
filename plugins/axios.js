@@ -1,15 +1,15 @@
 /*
- * @Author: terry 
- * @Date: 2018-07-18 16:51:42 
- * @Last Modified by: terryloveyan@gmail.com
- * @Last Modified time: 2018-07-23 22:47:40
- */
+ *
+ * axios
+ *
+*/
 
+import Vue from 'vue'
 import axios from 'axios'
-import config from '~/config'
+import apiConfig from '~/api.config'
 
 const service = axios.create({
-  baseURL: config.api.serverUrl
+  baseURL: apiConfig.baseUrl
 })
 
 // 拦截器
@@ -24,4 +24,6 @@ service.interceptors.response.use(response => {
 }, error => {
   return Promise.reject(error)
 })
+
+Vue.prototype.$http = axios
 export default service

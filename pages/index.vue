@@ -1,36 +1,46 @@
 <template>
-  <!-- CONTENT -->
-  <div class="content col-xs-8">
-      <article-list :article="article" ></article-list>
-    <!-- NAVIGATION -->
-    <div class="navigation">
-      <a href="#" class="prev">
-        <i class="icon-arrow-left8"></i> Previous Posts</a>
-      <a href="#" class="next">Next Posts
-        <i class="icon-arrow-right8"></i>
-      </a>
-      <div class="clearfix"></div>
-    </div>
+  <div class="index">
+    <carrousel :article="article"></carrousel>
+    <announcement :announcement="announcement"></announcement>
+    <article-list :article="article" @loadmore="loadmoreArticle"></article-list>
   </div>
 </template>
 
 <script>
-  import  ArticleList from '~/components/common/article'
+  import Service from '~/plugins/axios'
+  import ArticleList from '~/components/archive/list'
+  import Carrousel from '~/components/archive/carrousel'
+  import Announcement from '~/components/archive/announcement'
   export default {
+    name: 'index',
     fetch({ store }) {
       return Promise.all([
-        store.dispatch('loadArticles')
+        store.dispatch('loadArticles'),
+        store.dispatch('loadAnnouncements')
       ])
     },
-    components:{
+    components: {
+      Carrousel,
+      Announcement,
       ArticleList
     },
-    layout: 'index',
     computed: {
       article() {
         return this.$store.state.article.list
       },
+      announcement() {
+        return this.$store.state.announcement
+      },
+      nextPageParams() {
+        return {
+          page: this.article.data.pagination.current_page + 1
+        }
+      }
+    },
+    methods: {
+      loadmoreArticle() {
+        this.$store.dispatch('loadArticles', this.nextPageParams)
+      }
     }
   }
-
 </script>

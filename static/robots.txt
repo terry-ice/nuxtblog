@@ -1,0 +1,7 @@
+# robots.txt
+User-agent: *
+Disallow: 
+Disallow: /bin/
+Disallow: /proxy
+Sitemap: http://www.592php.com/sitemap.xml
+Sitemap: http://www.592php.com/sitemap
