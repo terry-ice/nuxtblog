@@ -8,20 +8,9 @@
               <div class="desc">
                 <p class="item">
                   <i class="iconfont icon-user"></i>
-                  <span><span class="first-letter">I</span>'m Surmon, a (95+) (小) Javascript (鲜) stack (肉) developer.</span>
+                  <span><span class="first-letter">I</span>'m terry, a (92+)  Javascript developer.</span>
                 </p>
-                <p class="item">
-                  <i class="iconfont icon-comment-discussion"></i>
-                  <span>Taolu committee: </span>
-                  <a target="_blank" 
-                     rel="external nofollow noopenter"
-                     href="https://shang.qq.com/wpa/qunwpa?idkey=837dc31ccbcd49feeba19430562be7bdc06f4428880f78a391fd61c8af714ce4">288325802</a>
-                  <span>.</span>
-                </p>
-                <p class="item">
-                  <i class="iconfont icon-music"></i>
-                  <nuxt-link to="/music">Jazz-HipHop, Electronic, Disco, Rock, Punk.</nuxt-link>
-                </p>
+             
                 <p class="item">
                   <i class="iconfont icon-like"></i>
                   <span>code. beauty. life.</span>
@@ -29,7 +18,7 @@
                 <p class="item">
                   <i class="iconfont icon-coffee"></i>
                   <span class="accounts">
-                    <a href="mailto:surmon@foxmail.com" 
+                    <a href="mailto:terryloveyan@gmail.com" 
                        target="_blank" 
                        rel="external nofollow noopenter">
                       <i class="iconfont icon-mail"></i>
@@ -39,91 +28,12 @@
                        rel="external nofollow noopenter">
                       <i class="iconfont icon-github"></i>
                     </a>
-                    <a href="https://surmon.taobao.com" 
-                       target="_blank"
-                       v-if="false"
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-taobao"></i>
-                    </a>
-                    <a href="https://stackoverflow.com/users/6222535/surmon?tab=profile" 
-                       target="_blank"
-                       v-if="false"
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-stackoverflow"></i>
-                    </a>
-                    <a href="https://leetcode.com/surmon" 
-                       target="_blank"
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-algorithm"></i>
-                    </a>
-                    <a href="https://juejin.im/user/5735611ac4c9710060f8fa5e" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-juejin"></i>
-                    </a>
-                    <a href="http://www.zhihu.com/people/surmon/activities" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-zhihu"></i>
-                    </a>
-                    <a href="http://www.quora.com/profile/Surmon" 
-                       target="_blank"
-                       v-if="false"
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-quora"></i>
-                    </a>
-                    <a href="http://www.linkedin.com/in/surmon" 
-                       target="_blank"
-                       v-if="false"
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-linkedin"></i>
-                    </a>
-                    <a href="https://weibo.com/nocower" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-weibo"></i>
-                    </a>
-                    <a href="https://twitter.com/surmon_me" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-twitter"></i>
-                    </a>
-                    <a href="http://www.facebook.com/592php.com" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-facebook"></i>
-                    </a>
-                    <a href="http://www.instagram.com/surmon666/" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">
-                      <i class="iconfont icon-instagram"></i>
-                    </a>
+              
                   </span>
                 </p>
                 <p class="item">
                   <i class="iconfont icon-code"></i>
                   <span class="skills">Talk is cheap. fuck me.</span>
-                </p>
-                <p class="item">
-                  <i class="iconfont icon-friend"></i>
-                  <span class="friends">
-                    <a href="http://skyrover.me/about" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">「 skyrover 」</i>
-                    </a>
-                    <a href="https://jooger.me/about" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">「 Jooger 」</i>
-                    </a>
-                    <a href="https://blog.jimmylv.info" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">「 JimmyLv 」</i>
-                    </a>
-                    <a href="https://biji.io" 
-                       target="_blank" 
-                       rel="external nofollow noopenter">「 Tokin 」</i>
-                    </a>
-                  </span>
                 </p>
               </div>
               <div class="gravatar">

@@ -109,7 +109,7 @@
           <li class="item">
             <a href="" class="pagination-btn prev disabled" @click.stop.prevent>— old</a>
           </li>
-          <li class="item" v-for="item in comment.data.pagination.total_page">
+          <li class="item" v-for="(item,index) in comment.data.pagination.total_page" :key="index">
             <a href="" 
                class="pagination-btn" 
                :class="{ 'actived disabled': paginationReverseActive(item) }"
@@ -1087,7 +1087,7 @@
             width: 100%;
             height: 2em;
             background-color: $module-hover-bg;
-
+            border: 1px solid #e6e6e6;
             &:focus,
             &:hover {
               background-color: $module-hover-bg-darken-10;
@@ -1114,7 +1114,6 @@
             width: 4rem;
             height: 4rem;
             background-color: $module-hover-bg-darken-20;
-
             > img {
               width: 100%;
               height: 100%;
@@ -1173,7 +1172,7 @@
               font-size: .95em;
               line-height: 1.8em;
               background-color: $module-hover-bg;
-
+              border: 1px solid #e6e6e6;
               &:empty:before{
                 content: attr(placeholder);
                 color: $disabled;
@@ -1267,10 +1266,18 @@
             > .submit {
               float: right;
               width: 7em;
-              background-color: $module-hover-bg-darken-20;
-
+              // background-color: $module-hover-bg-darken-20;
+              font-size: 13px;
+              color: #757575;
+              line-height: 16px;
+              text-decoration: none;
+              background-color: #eee;
+              border: 1px solid #eaeaea;
+              padding: 10px 25px;
               &:hover {
-                background-color: $module-hover-bg-darken-40;
+                // background-color: $module-hover-bg-darken-40;
+                background-color: #eaeaea;
+                border: 1px solid #eaeaea;
               }
             }
           }

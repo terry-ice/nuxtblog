@@ -76,7 +76,7 @@
     }
 
     &:hover {
-      background-color: $module-hover-bg;
+      background-color: #eee;
     }
 
     >.item-content {

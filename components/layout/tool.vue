@@ -2,29 +2,9 @@
   <div id="tools">
     <div class="container">
       <div class="tools-list">
-        <button class="webrtc" 
-                title="webrtc"
-                @click="toggleWebrtc"
-                :disabled="barrageState"
-                :class="{ 
-                  active: webrtcState,
-                  close: barrageState
-                }">
-          <i class="iconfont icon-webrtc"></i>
-        </button>
-        <button class="barrage" 
-                title="barrage"
-                @click="toggleBarrage" 
-                :disabled="webrtcState"
-                :class="{ 
-                  active: barrageState,
-                  close: webrtcState
-                }">
-          <i class="iconfont icon-barrage"></i>
-        </button>
         <a class="feedback" 
            title="feedback"
-           href="mailto:surmon@foxmail.com"
+           href="mailto:terryloveyan@gmail.com"
            target="_blank">
           <i class="iconfont icon-feedback"></i>
         </a>
@@ -46,7 +26,6 @@
     </div>
   </div>
 </template>
-
 <script>
   import { mapState } from 'vuex'
   import { scrollTo, easing } from '~/utils/scroll-to-anywhere'

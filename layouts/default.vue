@@ -7,19 +7,11 @@
       <mobile-aside :class="{ open: mobileSidebar }"></mobile-aside>
     </div>
     <div id="app-main" :class="{ open: mobileSidebar }" @click="closeMobileSidebar">
-      <emojo-rain></emojo-rain>
       <background v-if="!mobileLayout"></background>
-      <barrage v-if="!mobileLayout && barrageMounted" v-cloak></barrage>
-      <transition name="fade">
-        <webrtc v-if="!mobileLayout && openWebrtc" v-cloak></webrtc>
-      </transition>
       <header-view v-if="!mobileLayout"></header-view>
       <mobile-header v-if="mobileLayout"></mobile-header>
-      <theme-view v-if="!mobileLayout" @theme="setTheme"></theme-view>
       <main id="main" :class="{ 'mobile': mobileLayout, [$route.name]: true }">
-        <div id="main-content" 
-             class="main-content" 
-             :class="{ 
+        <div id="main-content" class="main-content" :class="{ 
                'full-column': fullColumn, 
                'error-column': errorColumn,
                'mobile-layout': mobileLayout,
@@ -35,7 +27,7 @@
           </keep-alive>
         </transition>
       </main>
-      <tool-view v-if="!mobileLayout && !['app', 'music', 'service'].includes($route.name)"></tool-view>
+      <tool-view v-if="!mobileLayout && !['app','service'].includes($route.name)"></tool-view>
       <share-view class="sidebar-share" v-if="!mobileLayout && !['service'].includes($route.name)"></share-view>
       <footer-view v-if="!mobileLayout"></footer-view>
       <mobile-footer v-else></mobile-footer>
@@ -44,16 +36,30 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import {
+    mapState
+  } from 'vuex'
   import eventBus from '~/utils/event-bus'
-  import { MobileHeader, MobileFooter, MobileAside } from '~/components/mobile'
-  import { Background, EmojoRain, Barrage, Webrtc, Header, Footer, Aside, Share, Theme, Tool, Nav } from '~/components/layout'
+  import {
+    MobileHeader,
+    MobileFooter,
+    MobileAside
+  } from '~/components/mobile'
+  import {
+    Background,
+    Header,
+    Footer,
+    Aside,
+    Share,
+    Theme,
+    Tool
+  } from '~/components/layout'
   export default {
     name: 'app',
     head() {
       return !this.mobileLayout ? {} : {
         bodyAttrs: {
-          class: 'mobile' 
+          class: 'mobile'
         }
       }
     },
@@ -66,30 +72,28 @@
     mounted() {
       // this.watchFullScreen()
       this.watchTabActive()
-      if (!this.mobileLayout) {
-        this.$store.dispatch('loadMuiscPlayerList')
-      }
+      // if (!this.mobileLayout) {
+      //   this.$store.dispatch('loadMuiscPlayerList')
+      // }
       this.$root.$eventBus = eventBus
       this.$root.$copyToClipboard = this.copyToClipboard
     },
     components: {
-      Webrtc,
-      Barrage,
-      EmojoRain,
-      Background,
       HeaderView: Header,
       FooterView: Footer,
       AsideView: Aside,
       ShareView: Share,
       ThemeView: Theme,
       ToolView: Tool,
-      NavView: Nav,
+      Background,
       MobileHeader,
       MobileFooter,
       MobileAside
     },
     computed: {
-      ...mapState('option', ['openWebrtc', 'barrageMounted', 'fullColumn', 'errorColumn', 'mobileLayout', 'mobileSidebar'])
+      ...mapState('option', ['openWebrtc', 'barrageMounted', 'fullColumn', 'errorColumn', 'mobileLayout',
+        'mobileSidebar'
+      ])
     },
     methods: {
       setTheme(theme) {
@@ -132,6 +136,7 @@
       }
     }
   }
+
 </script>
 
 <style lang="scss" scoped>
@@ -145,8 +150,7 @@
 
     #app-tools {
       height: 0px;
-      opacity: 0;
-      // overflow: hidden;
+      opacity: 0; // overflow: hidden;
     }
 
     #app-aside {
@@ -193,11 +197,11 @@
           &:-moz-full-screen {
             overflow-y: auto;
           }
-           
+
           &:-webkit-full-screen {
             overflow-y: auto;
           }
-            
+
           &:fullscreen {
             overflow-y: auto;
           }
@@ -232,4 +236,5 @@
       }
     }
   }
+
 </style>

@@ -267,21 +267,21 @@ export const actions = {
     })
   },
 
-  // 获取歌曲列表
-  loadMuiscPlayerList({ commit }) {
-    eventBus.requestMusicList()
-    return service.get('/music/list/638949385')
-    .then(response => {
-      const success = response.status && response.data && Object.is(response.data.code, 1)
-      if (success) {
-        eventBus.getMusicListSuccess(response.data)
-        eventBus.initPlayer()
-      }
-      if (!success) eventBus.getMusicListFailure()
-    }, err => {
-      eventBus.getMusicListFailure(err)
-    })
-  },
+  // // 获取歌曲列表
+  // loadMuiscPlayerList({ commit }) {
+  //   eventBus.requestMusicList()
+  //   return service.get('/music/list/638949385')
+  //   .then(response => {
+  //     const success = response.status && response.data && Object.is(response.data.code, 1)
+  //     if (success) {
+  //       eventBus.getMusicListSuccess(response.data)
+  //       eventBus.initPlayer()
+  //     }
+  //     if (!success) eventBus.getMusicListFailure()
+  //   }, err => {
+  //     eventBus.getMusicListFailure(err)
+  //   })
+  // },
 
   // 获取歌曲详情
   loadMuiscSongDetail({ commit }, params = {}) {

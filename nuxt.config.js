@@ -34,7 +34,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: [/(node_modules)/, /underscore-simple/, /webrtc/]
+          exclude: [/(node_modules)/, /underscore-simple/]
         })
       }
       if (isProdMode) {
@@ -98,7 +98,6 @@ module.exports = {
     { src: '~/plugins/highlight.js' },
     { src: '~/plugins/ga.js', ssr: false },
     { src: '~/plugins/clmtrackr.js', ssr: false },
-    { src: '~/plugins/emoji-233333.js', ssr: false },
     { src: '~/plugins/image-popup.js', ssr: false },
     { src: '~/plugins/copy-right.js', ssr: false },
     { src: '~/plugins/particles.js', ssr: false },

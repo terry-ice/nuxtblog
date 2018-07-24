@@ -3,7 +3,8 @@
 
   --body-bg: $body-bg;
 
-  --module-bg: rgba($white, 0.6);
+  --module-bg: rgba($white, 1);
+  //#f6f6f6
   --module-bg-opacity-5: rgba($white, 0.5);
   --module-bg-opacity-8: rgba($white, 0.8);
   --module-bg-opacity-9: rgba($white, 0.9);
@@ -40,7 +41,7 @@
                      $white: #fff,
                      $black: #000,
                      $primary: #0088f5,
-                     $body-bg: #eee,
+                     $body-bg: #f6f6f6,
                      $module-hover-bg: rgba(197, 197, 197, 0.5));
   }
 
