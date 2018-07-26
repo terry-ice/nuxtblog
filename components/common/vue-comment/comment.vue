@@ -7,10 +7,7 @@
           <span>&nbsp;</span>
           <span>条评论</span>
         </div>
-        <a href="" 
-           class="like" 
-           :class="{ liked: pageLiked }"
-           @click.stop.prevent="likePage">
+        <a href="" class="like" :class="{ liked: pageLiked }" @click.stop.prevent="likePage">
           <i class="iconfont icon-like"></i>
           <strong>{{ likes || 0 }}</strong>
           <span>人喜欢</span>
@@ -20,14 +17,8 @@
         </a>
       </div>
       <div class="sort">
-        <a href="" 
-           class="sort-btn"
-           :class="{ actived: Object.is(sortMode, -1) }" 
-           @click.stop.prevent="sortComemnts(-1)">最新</a>
-        <a href="" 
-           class="sort-btn"
-           :class="{ actived: Object.is(sortMode, 2) }" 
-           @click.stop.prevent="sortComemnts(2)">最热</a>
+        <a href="" class="sort-btn" :class="{ actived: Object.is(sortMode, -1) }" @click.stop.prevent="sortComemnts(-1)">最新</a>
+        <a href="" class="sort-btn" :class="{ actived: Object.is(sortMode, 2) }" @click.stop.prevent="sortComemnts(2)">最热</a>
       </div>
     </div>
     <transition name="module" mode="out-in">
@@ -35,26 +26,15 @@
       <loading-box v-else-if="comment.fetching"></loading-box>
       <div class="list-box" v-else>
         <transition-group name="fade" tag="ul" class="comment-list">
-          <li class="comment-item" 
-              :id="`comment-item-${comment.id}`" 
-              :key="index"
-              v-for="(comment, index) in comment.data.data">
+          <li class="comment-item" :id="`comment-item-${comment.id}`" :key="index" v-for="(comment, index) in comment.data.data">
             <div class="cm-avatar" v-if="!mobileLayout">
-              <a target="_blank"
-                 rel="external nofollow noopener"
-                 :href="comment.author.site" 
-                 @click.stop="clickUser($event, comment.author)">
-                <img :alt="comment.author.name || '匿名用户'"
-                     :src="gravatar(comment.author.email) || `${cdnUrl}/images/anonymous.jpg`">
+              <a target="_blank" rel="external nofollow noopener" :href="comment.author.site" @click.stop="clickUser($event, comment.author)">
+                <img :alt="comment.author.name || '匿名用户'" :src="gravatar(comment.author.email) || `${cdnUrl}/images/anonymous.jpg`">
               </a>
             </div>
             <div class="cm-body">
               <div class="cm-header">
-                <a class="user-name" 
-                   target="_blank" 
-                   rel="external nofollow noopener"
-                   :href="comment.author.site" 
-                   @click.stop="clickUser($event, comment.author)">{{ comment.author.name | firstUpperCase }}</a>
+                <a class="user-name" target="_blank" rel="external nofollow noopener" :href="comment.author.site" @click.stop="clickUser($event, comment.author)">{{ comment.author.name | firstUpperCase }}</a>
                 <span class="os" v-html="osParse(comment.agent)" v-if="comment.agent"></span>
                 <span class="ua" v-html="uaParse(comment.agent)" v-if="comment.agent"></span>
                 <span class="location" v-if="comment.ip_location && !mobileLayout">
@@ -81,12 +61,10 @@
                   <i class="iconfont icon-reply"></i>
                   <span>回复</span>
                 </a>
-                <a href="" 
-                   class="like" 
-                   :class="{ liked: commentLiked(comment.id), actived: !!comment.likes }"
-                   @click.stop.prevent="likeComment(comment)">
+                <a href="" class="like" :class="{ liked: commentLiked(comment.id), actived: !!comment.likes }" @click.stop.prevent="likeComment(comment)">
                   <i class="iconfont icon-zan"></i>
-                  <span>顶&nbsp;({{ comment.likes }})</span></a>
+                  <span>顶&nbsp;({{ comment.likes }})</span>
+                </a>
               </div>
             </div>
           </li>
@@ -97,10 +75,8 @@
       <div class="pagination-box" v-if="comment.data.pagination.total_page > 1">
         <ul class="pagination-list" v-if="Object.is(sortMode, 2)">
           <li class="item" v-for="item in comment.data.pagination.total_page">
-            <a href="" 
-               class="pagination-btn" 
-               :class="{ 'actived disabled': Object.is(item, comment.data.pagination.current_page) }"
-               @click.stop.prevent="Object.is(item, comment.data.pagination.current_page) 
+            <a href="" class="pagination-btn" :class="{ 'actived disabled': Object.is(item, comment.data.pagination.current_page) }"
+              @click.stop.prevent="Object.is(item, comment.data.pagination.current_page) 
                ? false 
                : loadComemntList({ page: item })">{{ item }}</a>
           </li>
@@ -110,10 +86,7 @@
             <a href="" class="pagination-btn prev disabled" @click.stop.prevent>— old</a>
           </li>
           <li class="item" v-for="(item,index) in comment.data.pagination.total_page" :key="index">
-            <a href="" 
-               class="pagination-btn" 
-               :class="{ 'actived disabled': paginationReverseActive(item) }"
-               @click.stop.prevent="paginationReverseActive(item)
+            <a href="" class="pagination-btn" :class="{ 'actived disabled': paginationReverseActive(item) }" @click.stop.prevent="paginationReverseActive(item)
                   ? false 
                   : loadComemntList({ 
                       page: comment.data.pagination.total_page + 1 - item 
@@ -130,21 +103,10 @@
       <transition name="module" mode="out-in">
         <div class="user" v-if="!userCacheMode || userCacheEditing">
           <div class="name">
-            <input required
-                   type="text" 
-                   name="name"
-                   placeholder="name *" 
-                   autocomplete="on"
-                   v-model="user.name">
+            <input required type="text" name="name" placeholder="name *" autocomplete="on" v-model="user.name">
           </div>
           <div class="email">
-            <input required
-                   type="email" 
-                   name="email"
-                   placeholder="email *" 
-                   autocomplete="on"
-                   v-model="user.email" 
-                   @blur="upadteUserGravatar">
+            <input required type="email" name="email" placeholder="email *" autocomplete="on" v-model="user.email" @blur="upadteUserGravatar">
           </div>
           <div class="site">
             <input type="url" name="url" placeholder="site" autocomplete="on" v-model="user.site">
@@ -173,8 +135,7 @@
       <div class="editor-box">
         <div class="user">
           <div class="gravatar" v-if="!mobileLayout">
-            <img :alt="user.name || '匿名用户'"
-                 :src="user.gravatar || `${cdnUrl}/images/anonymous.jpg`">
+            <img :alt="user.name || '匿名用户'" :src="user.gravatar || `${cdnUrl}/images/anonymous.jpg`">
           </div>
         </div>
         <div class="editor">
@@ -193,22 +154,16 @@
             </div>
           </transition>
           <div class="markdown">
-            <div class="markdown-editor" 
-                 ref="markdown"
-                 contenteditable="true"
-                 placeholder="Show me the code."
-                 @keyup="commentContentChange($event)">
+            <div class="markdown-editor" ref="markdown" contenteditable="true" placeholder="Show me the code." @keyup="commentContentChange($event)">
             </div>
-            <div class="markdown-preview" 
-                 :class="{ actived: previewMode }"
-                 v-html="previewContent"></div>
+            <div class="markdown-preview" :class="{ actived: previewMode }" v-html="previewContent"></div>
           </div>
           <div class="editor-tools">
             <a href="" class="emoji" title="emoji" @click.stop.prevent>
               <i class="iconfont icon-emoji"></i>
               <div class="emoji-box">
                 <ul class="emoji-list">
-                  <li class="item" @click="insertEmoji(e)" v-for="e in emojis">{{ e }}</li>
+                  <li class="item" @click="insertEmoji(e)" :key='index' v-for="(e,index) in emojis">{{ e }}</li>
                 </ul>
               </div>
             </a>
@@ -224,10 +179,7 @@
             <a href="" class="preview" title="preview" @click.stop.prevent="togglePreviewMode">
               <i class="iconfont icon-eye"></i>
             </a>
-            <button type="submit" 
-                    class="submit" 
-                    :disabled="comment.posting"
-                    @click="submitComment($event)">
+            <button type="submit" class="submit" :disabled="comment.posting" @click="submitComment($event)">
               <span>{{ comment.posting ? '发布中...' : '发布' }}</span>
             </button>
           </div>
@@ -238,13 +190,20 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import {
+    mapState
+  } from 'vuex'
   import marked from '~/plugins/marked'
   import eventBus from '~/utils/event-bus'
   import gravatar from '~/plugins/gravatar'
-  import { scrollTo } from '~/utils/scroll-to-anywhere'
-  import { uaParse, osParse } from '~/utils/comment-ua-parse'
-  
+  import {
+    scrollTo
+  } from '~/utils/scroll-to-anywhere'
+  import {
+    uaParse,
+    osParse
+  } from '~/utils/comment-ua-parse'
+
   export default {
     name: 'vue-comment',
     data() {
@@ -276,7 +235,9 @@
           email: /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/,
           url: /^((https|http):\/\/)+[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/
         },
-        emojis: ['😃', '😂', '😅', '😉', '😌', '😔', '😓', '😢', '😍', '😘', '😜', '😡', '😭', '😱', '😳', '😵', '🌚', '🙏', '👆', '👇', '👌', '👍', '👎', '💪', '👏', '🌻', '🌹', '💊', '🇨🇳', '🇺🇸']
+        emojis: ['😃', '😂', '😅', '😉', '😌', '😔', '😓', '😢', '😍', '😘', '😜', '😡', '😭', '😱', '😳', '😵', '🌚',
+          '🙏', '👆', '👇', '👌', '👍', '👎', '💪', '👏', '🌻', '🌹', '💊', '🇨🇳', '🇺🇸'
+        ]
       }
     },
     props: {
@@ -293,7 +254,7 @@
       ...mapState({
         comment: state => state.comment,
         mobileLayout: state => state.option.mobileLayout,
-        blacklist: state => state.option.globalOption.data.blacklist,
+        // blacklist: state => state.option.globalOption.data.blacklist,
       }),
       pageLiked() {
         return this.historyLikes.pages.includes(this.postId)
@@ -330,7 +291,7 @@
       // 头像服务
       gravatar(email) {
         if (!this.regexs.email.test(email)) return null
-        const gravatar_url = gravatar.url(email, { 
+        const gravatar_url = gravatar.url(email, {
           // size: '96', 
           // rating: 'pg',
           // default: 'https://gravatar.592php.com/anonymous.jpg', 
@@ -386,7 +347,10 @@
           this.comemntContentText = text
         }
       },
-      updateCommentContent({ start = '', end = '' }) {
+      updateCommentContent({
+        start = '',
+        end = ''
+      }) {
         if (!start && !end) return false
         // 如果选中了内容，则把选中的内容替换，否则在光标位置插入新内容
         const selectedText = (window.getSelection || document.getSelection)().toString()
@@ -423,7 +387,9 @@
         this.updateCommentContent(contents[type])
       },
       insertEmoji(emoji) {
-        this.updateCommentContent({ end: emoji })
+        this.updateCommentContent({
+          end: emoji
+        })
       },
       // 切换预览模式
       togglePreviewMode() {
@@ -451,7 +417,9 @@
         const targetDom = document.getElementById(id)
         if (targetDom) {
           const isToEditor = Object.is(id, 'post-box')
-          scrollTo(targetDom, 200, { offset: isToEditor ? 0 : -300 })
+          scrollTo(targetDom, 200, {
+            offset: isToEditor ? 0 : -300
+          })
           // 如果是进入编辑模式，则需要激活光标
           if (isToEditor) {
             const p = this.$refs.markdown
@@ -481,28 +449,34 @@
       // 喜欢当前页面
       likePage() {
         if (this.pageLiked) return false
-        this.$store.dispatch('likeArticleOrPageOrComment', { type: 2, id: this.postId })
-        .then(data => {
-          this.historyLikes.pages.push(this.postId)
-          localStorage.setItem('user_like_history', JSON.stringify(this.historyLikes))
-        })
-        .catch(err => {
-          console.warn('喜欢失败', err)
-          alert('操作失败，原因 => 控制台')
-        })
+        this.$store.dispatch('likeArticleOrPageOrComment', {
+            type: 2,
+            id: this.postId
+          })
+          .then(data => {
+            this.historyLikes.pages.push(this.postId)
+            localStorage.setItem('user_like_history', JSON.stringify(this.historyLikes))
+          })
+          .catch(err => {
+            console.warn('喜欢失败', err)
+            alert('操作失败，原因 => 控制台')
+          })
       },
       // 点赞某条评论
       likeComment(comment) {
         if (this.commentLiked(comment.id)) return false
-        this.$store.dispatch('likeArticleOrPageOrComment', { type: 1, id: comment.id })
-        .then(data => {
-          this.historyLikes.comments.push(comment.id)
-          localStorage.setItem('user_like_history', JSON.stringify(this.historyLikes))
-        })
-        .catch(err => {
-          console.warn('评论点赞失败', err)
-          alert('操作失败，原因 => 控制台')
-        })
+        this.$store.dispatch('likeArticleOrPageOrComment', {
+            type: 1,
+            id: comment.id
+          })
+          .then(data => {
+            this.historyLikes.comments.push(comment.id)
+            localStorage.setItem('user_like_history', JSON.stringify(this.historyLikes))
+          })
+          .catch(err => {
+            console.warn('评论点赞失败', err)
+            alert('操作失败，原因 => 控制台')
+          })
       },
       // 获取某条评论是否被点赞
       commentLiked(comment_id) {
@@ -511,7 +485,9 @@
       // 获取评论列表
       loadComemntList(params = {}) {
         params.sort = this.sortMode
-        this.$store.dispatch('loadCommentsByPostId', Object.assign(params, { post_id: this.postId }))
+        this.$store.dispatch('loadCommentsByPostId', Object.assign(params, {
+          post_id: this.postId
+        }))
       },
       // 提交评论
       submitComment(event) {
@@ -521,21 +497,23 @@
         if (!this.user.email) return alert('邮箱？')
         if (!this.regexs.email.test(this.user.email)) return alert('邮箱不合法')
         if (this.user.site && !this.regexs.url.test(this.user.site)) return alert('链接不合法')
-        if(!this.comemntContentText || !this.comemntContentText.replace(/\s/g, '')) return alert('内容？')
+        if (!this.comemntContentText || !this.comemntContentText.replace(/\s/g, '')) return alert('内容？')
         const lineOverflow = this.comemntContentText.split('\n').length > 36
         const lengthOverflow = this.comemntContentText.length > 2000
-        if(lineOverflow || lengthOverflow) return alert('内容需要在2000字/36行以内')
+        if (lineOverflow || lengthOverflow) return alert('内容需要在2000字/36行以内')
         // 使用服务单配置的黑名单在本地校验邮箱和关键字
-        if (this.blacklist.mails.includes(this.user.email) || 
-           (this.blacklist.keywords.length && 
-            eval(`/${this.blacklist.keywords.join('|')}/ig`).test(this.comemntContentText))) {
-          alert('发布失败，原因 => 控制台');
-          console.warn('评论发布失败\n1：邮箱被列入黑名单\n2：内容包含黑名单关键词');
-          return false;
-        }
+        // console.log(object)
+        // if (this.blacklist.mails.includes(this.user.email) ||
+        //   (this.blacklist.keywords.length &&
+        //     eval(`/${this.blacklist.keywords.join('|')}/ig`).test(this.comemntContentText))) {
+        //   alert('发布失败，原因 => 控制台');
+        //   console.warn('评论发布失败\n1：邮箱被列入黑名单\n2：内容包含黑名单关键词');
+        //   return false;
+        // }
         if (!this.user.site) {
           Reflect.deleteProperty(this.user, 'site')
         }
+        console.log(this, 'this')
         this.$store.dispatch('postComment', {
           pid: this.pid,
           post_id: this.postId,
@@ -548,7 +526,7 @@
           const emoji233333 = eventBus.emoji233333
           if (emoji233333 && emoji233333.launch) {
             // 为表情做一次缓冲
-            const preImage = (url, callback) => {  
+            const preImage = (url, callback) => {
               const img = new Image()
               img.src = url
               if (img.complete) return callback(img)
@@ -574,7 +552,12 @@
               preImage(emoji, emoji233333.launch.bind(emoji233333))
             } else if (content.includes('呵呵')) {
               const emoji = '/images/emojis/hehe.png'
-              emoji233333.update({ emoji, staggered: false, speed: 8, increaseSpeed: 0.04 })
+              emoji233333.update({
+                emoji,
+                staggered: false,
+                speed: 8,
+                increaseSpeed: 0.04
+              })
               preImage(emoji, emoji233333.launch.bind(emoji233333))
             }
           }
@@ -590,6 +573,7 @@
       }
     }
   }
+
 </script>
 
 <style lang="scss">
@@ -652,11 +636,11 @@
         text-align: center;
       }
 
-      > .code-lines {
+      >.code-lines {
         display: none;
       }
 
-      > code {
+      >code {
         margin: 0;
         padding: 1em;
         float: left;
@@ -676,54 +660,54 @@
 
     &.mobile {
 
-      > .list-box {
+      >.list-box {
 
-        > .comment-list {
+        >.comment-list {
 
-          > .comment-item {
+          >.comment-item {
             padding: 0;
             margin-bottom: 1rem;
 
-            > .cm-body {
+            >.cm-body {
               padding: .6em;
             }
           }
         }
       }
 
-      > .post-box {
+      >.post-box {
 
-        > .user {
+        >.user {
           padding: 0;
           height: auto;
           flex-direction: column;
 
-          > .name,
-          > .email,
-          > .site,
-          > .save {
+          >.name,
+          >.email,
+          >.site,
+          >.save {
             width: 80%;
             margin-left: 0;
             margin-right: 0;
             margin-bottom: 1rem;
           }
 
-          > .save {
+          >.save {
             width: 30%;
             margin-bottom: 0;
           }
         }
 
-        > .editor-box {
+        >.editor-box {
 
-          > .user {
+          >.user {
             margin: 0;
           }
         }
       }
     }
 
-    > .tools {
+    >.tools {
       display: flex;
       padding: 1em 0;
       padding-top: 0;
@@ -732,19 +716,19 @@
       border-bottom: 1px solid $module-hover-bg;
       margin-bottom: .6em;
 
-      > .total {
+      >.total {
         display: flex;
         font-size: 1em;
 
-        > .like,
-        > .shang,
-        > .count {
+        >.like,
+        >.shang,
+        >.count {
           padding: .2em .5em;
           background-color: $module-hover-bg;
         }
 
         @keyframes shangBtnBg {
-          0%   {
+          0% {
             background: $primary-opacity-9;
           }
           50% {
@@ -755,16 +739,16 @@
           }
         }
 
-        > .shang {
+        >.shang {
           margin-left: .5em;
           color: white;
           animation: shangBtnBg 1s infinite;
         }
 
-        > .like {
+        >.like {
           margin-left: .5em;
 
-          > .iconfont {
+          >.iconfont {
             margin-right: .5em;
           }
 
@@ -774,16 +758,16 @@
 
           &.liked {
 
-            > .iconfont {
+            >.iconfont {
               color: $red;
             }
           }
         }
       }
 
-      > .sort {
+      >.sort {
 
-        > .sort-btn {
+        >.sort-btn {
           margin-left: 1em;
 
           &.actived {
@@ -794,55 +778,55 @@
       }
     }
 
-    > .empty-box {
+    >.empty-box {
       font-weight: bold;
       text-align: center;
       height: 5rem;
       line-height: 5rem;
     }
 
-    > .list-box {
+    >.list-box {
 
-      > .comment-list {
+      >.comment-list {
         padding: 0;
         margin: 0;
         list-style-type: none;
 
-        > .comment-item {
+        >.comment-item {
           position: relative;
           padding: .6em 0 .6em 1.5em;
 
           &:hover {
 
-            > .cm-avatar {
+            >.cm-avatar {
 
-              > a {
-                > img {
+              >a {
+                >img {
                   transition: transform .5s ease-out;
                   transform: rotate(360deg);
                 }
               }
             }
 
-            > .cm-body {
+            >.cm-body {
               background-color: $module-hover-bg-darken-20;
             }
           }
 
-          > .cm-avatar {
+          >.cm-avatar {
             display: block;
             position: absolute;
             left: 0;
             top: 2em;
             background-color: $module-hover-bg;
 
-            > a {
+            >a {
               display: block;
               border: .3em solid $module-bg;
               width: 4em;
               height: 4em;
 
-              > img {
+              >img {
                 width: 100%;
                 height: 100%;
                 transition: transform .5s ease-out;
@@ -850,30 +834,28 @@
             }
           }
 
-          > .cm-body {
+          >.cm-body {
             display: block;
             width: 100%;
             height: 100%;
             padding: .6em .6em .6em 3.2em;
             background-color: $module-hover-bg;
 
-            > .cm-header {
+            >.cm-header {
               display: block;
               position: relative;
 
-              > .user-name {
+              >.user-name {
                 font-weight: bold;
-                margin-right: .8em;
-                // font-family: Microsoft YaHei,Arial,Helvetica,sans-serif;
-
+                margin-right: .8em; // font-family: Microsoft YaHei,Arial,Helvetica,sans-serif;
                 &:hover {
                   text-decoration: underline;
-                } 
+                }
               }
 
-              > .os,
-              > .ua,
-              > .location {
+              >.os,
+              >.ua,
+              >.location {
                 color: $disabled;
                 font-size: .8em;
                 margin-right: .8em;
@@ -883,7 +865,7 @@
                 }
               }
 
-              > .flool {
+              >.flool {
                 color: $dividers;
                 font-weight: 900;
                 font-size: .8em;
@@ -893,34 +875,34 @@
               }
             }
 
-            > .cm-content {
+            >.cm-content {
               font-size: .95em;
 
-              > .reply {
+              >.reply {
                 color: $disabled;
                 font-weight: bold;
 
-                > a {
+                >a {
                   text-decoration: none;
                 }
               }
             }
 
-            > .cm-footer {
+            >.cm-footer {
               display: flex;
 
-              > .create_at,
-              > .reply,
-              > .like {
+              >.create_at,
+              >.reply,
+              >.like {
                 font-size: .8em;
                 margin-right: 1em;
               }
 
-              > .create_at {
+              >.create_at {
                 color: $disabled;
               }
 
-              > .like {
+              >.like {
 
                 &:hover {
                   color: $red;
@@ -940,11 +922,11 @@
                 }
               }
 
-              > .reply,
-              > .like {
+              >.reply,
+              >.like {
                 opacity: .8;
 
-                > .iconfont {
+                >.iconfont {
                   opacity: .8;
                   margin-right: .2em;
                 }
@@ -959,20 +941,20 @@
       }
     }
 
-    > .pagination-box {
+    >.pagination-box {
       margin-top: .5rem;
 
-      > .pagination-list {
+      >.pagination-list {
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
         list-style-type: none;
 
-        > .item {
+        >.item {
           margin: 0 0.5em;
 
-          > .pagination-btn {
+          >.pagination-btn {
             display: inline-block;
             width: 2rem;
             height: 2rem;
@@ -1004,13 +986,13 @@
       }
     }
 
-    > .post-box {
+    >.post-box {
       display: block;
       border-top: 1px dashed $module-hover-bg-darken-20;
       margin-top: 1rem;
       padding-top: 1rem;
 
-      > .user {
+      >.user {
         width: 100%;
         height: 2em;
         line-height: 2em;
@@ -1018,33 +1000,33 @@
         margin-bottom: 1rem;
         padding-left: 5.2rem;
 
-        > .edit {
+        >.edit {
           flex-grow: 1;
           text-align: right;
           line-height: 2em;
           position: relative;
 
-          > .name {
+          >.name {
             // font-family: DINRegular, -apple-system, Microsoft YaHei, Arial, Helvetica, sans-serif;
           }
 
-          > .setting {
+          >.setting {
             margin-left: 1rem;
             font-size: 1rem;
             display: inline-block;
 
             &:hover {
 
-              > .user-tool {
+              >.user-tool {
                 display: block;
               }
             }
 
-            > .iconfont {
+            >.iconfont {
               margin-right: .5rem;
             }
 
-            > .user-tool {
+            >.user-tool {
               display: none;
               position: absolute;
               right: 0;
@@ -1058,15 +1040,13 @@
           }
         }
 
-        > .save {
+        >.save {
           width: 10%;
           margin-left: 1em;
           flex-grow: 1;
           line-height: 2em;
-          text-align: center;
-          // font-family: Microsoft YaHei,Arial,Helvetica,sans-serif;
-
-          > button {
+          text-align: center; // font-family: Microsoft YaHei,Arial,Helvetica,sans-serif;
+          >button {
             display: block;
             width: 100%;
             background-color: $module-hover-bg;
@@ -1077,13 +1057,13 @@
           }
         }
 
-        > .name,
-        > .email,
-        > .site {
+        >.name,
+        >.email,
+        >.site {
           // font-family: Microsoft YaHei,Arial,Helvetica,sans-serif;
           flex-grow: 1;
 
-          > input {
+          >input {
             width: 100%;
             height: 2em;
             background-color: $module-hover-bg;
@@ -1095,26 +1075,26 @@
           }
         }
 
-        > .name,
-        > .email {
+        >.name,
+        >.email {
           margin-right: 1em;
         }
       }
 
-      > .editor-box {
+      >.editor-box {
         width: 100%;
         display: flex;
 
-        > .user {
+        >.user {
           margin-right: 1em;
 
-          > .gravatar {
+          >.gravatar {
             display: block;
             margin-bottom: .5em;
             width: 4rem;
             height: 4rem;
             background-color: $module-hover-bg-darken-20;
-            > img {
+            >img {
               width: 100%;
               height: 100%;
               transition: transform .5s ease-out;
@@ -1122,16 +1102,16 @@
           }
         }
 
-        > .editor {
+        >.editor {
           flex-grow: 1;
           position: relative;
           overflow: hidden;
 
-          > .will-reply {
+          >.will-reply {
             font-size: .95em;
             margin-bottom: 1em;
 
-            > .reply-user {
+            >.reply-user {
               display: flex;
               justify-content: space-between;
               margin-bottom: 1rem;
@@ -1140,29 +1120,29 @@
               line-height: 2.6em;
               background-color: $module-hover-bg;
 
-               &:hover {
+              &:hover {
                 background-color: $module-hover-bg-darken-10;
               }
             }
 
-            > .reply-preview {
+            >.reply-preview {
               max-height: 10em;
               overflow: auto;
               padding: 1rem;
 
               background-color: $module-hover-bg;
 
-               &:hover {
+              &:hover {
                 background-color: $module-hover-bg-darken-10;
               }
             }
           }
 
-          > .markdown {
+          >.markdown {
             position: relative;
             overflow: hidden;
 
-            > .markdown-editor {
+            >.markdown-editor {
               min-height: 6em;
               max-height: 36em;
               overflow: auto;
@@ -1173,13 +1153,13 @@
               line-height: 1.8em;
               background-color: $module-hover-bg;
               border: 1px solid #e6e6e6;
-              &:empty:before{
+              &:empty:before {
                 content: attr(placeholder);
                 color: $disabled;
               }
 
-              &:focus{
-                content:none;
+              &:focus {
+                content: none;
               }
 
               &:hover {
@@ -1187,7 +1167,7 @@
               }
             }
 
-            > .markdown-preview {
+            >.markdown-preview {
               position: absolute;
               top: 0;
               left: 0;
@@ -1208,21 +1188,21 @@
             }
           }
 
-          > .editor-tools {
+          >.editor-tools {
             height: 2em;
             line-height: 2em;
             background-color: $module-hover-bg-opacity-9;
 
-            > .emoji {
+            >.emoji {
 
-              > .emoji-box {
+              >.emoji-box {
                 display: none;
                 position: absolute;
                 bottom: 2em;
                 left: 0;
                 background-color: $module-bg;
 
-                > .emoji-list {
+                >.emoji-list {
                   list-style: none;
                   padding: 0;
                   margin: 0;
@@ -1230,7 +1210,7 @@
                   display: flex;
                   flex-wrap: wrap;
 
-                  > .item {
+                  >.item {
                     padding: 0 .4em;
                     cursor: pointer;
 
@@ -1242,17 +1222,17 @@
               }
 
               &:hover {
-                > .emoji-box {
+                >.emoji-box {
                   display: block;
                 }
               }
             }
 
-            > .emoji,
-            > .image,
-            > .link,
-            > .code,
-            > .preview {
+            >.emoji,
+            >.image,
+            >.link,
+            >.code,
+            >.preview {
               width: 2em;
               height: 2em;
               text-align: center;
@@ -1263,10 +1243,9 @@
               }
             }
 
-            > .submit {
+            >.submit {
               float: right;
-              width: 7em;
-              // background-color: $module-hover-bg-darken-20;
+              width: 7em; // background-color: $module-hover-bg-darken-20;
               font-size: 13px;
               color: #757575;
               line-height: 16px;
@@ -1285,4 +1264,5 @@
       }
     }
   }
+
 </style>

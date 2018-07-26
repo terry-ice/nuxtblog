@@ -4,7 +4,7 @@
  *
 */
 
-import apiConfig from '~/api.config'
+import apiConfig from '~/config'
 import io from 'socket.io-client'
 const socket = io(apiConfig.socketHost, {
   transports: ['websocket']

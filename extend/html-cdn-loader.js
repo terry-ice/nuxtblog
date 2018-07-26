@@ -1,5 +1,5 @@
 
-const apiConfig = require('../api.config')
+const apiConfig = require('../config')
 const isProdMode = Object.is(process.env.NODE_ENV, 'production')
 
 module.exports = source => {

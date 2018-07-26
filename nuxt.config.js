@@ -1,7 +1,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const apiConfig = require('./api.config')
+const apiConfig = require('./config')
 const isProdMode = Object.is(process.env.NODE_ENV, 'production')
 module.exports = {
   loading: {
@@ -65,7 +65,6 @@ module.exports = {
       'gravatar',
       'particles.js',
       'simplewebrtc',
-      'socket.io-client'
     ],
     maxChunkSize: 350000,
     // 为 JS 和 Vue 文件定制 babel 配置。https://nuxtjs.org/api/configuration-build/#analyze
@@ -85,7 +84,7 @@ module.exports = {
   dev: isProdMode,
   env: {
     baseUrl: apiConfig.baseUrl,
-    HOST_URL: apiConfig.socketHost
+    // HOST_URL: apiConfig.socketHost
   },
   plugins: [
     { src: '~/plugins/cdn.js' },

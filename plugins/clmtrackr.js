@@ -4,7 +4,7 @@
  *
 */
 
-import apiConfig from '~/api.config'
+import apiConfig from '~/config'
 import uaParse from '~/utils/ua-parse'
 if (process.browser) {
   const { isMobile } = uaParse(navigator.userAgent)
