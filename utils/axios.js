@@ -2,7 +2,7 @@ import axios from 'axios'
 import qs from 'qs'
 // axios 配置
 axios.defaults.timeout = 5000
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = '/'
 // POST传参序列化
 axios
   .interceptors

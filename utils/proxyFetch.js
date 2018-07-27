@@ -9,7 +9,7 @@ const options = {
   }
 };
 export default function fetchData(url, data, method) {
-  let queryUrl = `${config.api.serverUrl}/api/${url}`;
+  let queryUrl = `${config.api.serverUrl}/${url}`;
   if ((!method || method === 'GET') && data) {
     queryUrl = `${queryUrl}?${Object
       .keys(data)

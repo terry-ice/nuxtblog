@@ -76,11 +76,11 @@
               <li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50">
                 <a href="/project">Project</a>
               </li>
-              <li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50">
-                <a href="/about">About</a>
-              </li>
               <li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49">
-                <a href="">Contact</a>
+                <a href="/service">Service</a>
+              </li>
+                <li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50">
+                <a href="/about">About</a>
               </li>
             </ul>
           </nav>
@@ -109,47 +109,6 @@
         })
       }
     },
-    computed: {
-      player() {
-        return EventBus.player.player
-      },
-      playerState() {
-        return EventBus.player.playerState
-      },
-      currentSong() {
-        return EventBus.currentSong
-      },
-      currentSongPicUrl() {
-        if (this.currentSong) {
-          const picUrl = this.currentSong.album.picUrl
-          return picUrl ? picUrl.replace("http://", "/proxy/") + "?param=600y600" : `${this.cdnUrl}/images/music-bg.jpg`
-        } else {
-          return `${this.cdnUrl}/images/music-bg.jpg`
-        }
-      }
-    },
-    methods: {
-      togglePlay() {
-        if (this.playerState.ready) {
-          this.player.togglePlay()
-        }
-      },
-      toggleMuted() {
-        if (this.playerState.ready) {
-          this.player.toggleMuted()
-        }
-      },
-      prevSong() {
-        if (this.playerState.ready) {
-          this.player.prevSong()
-        }
-      },
-      nextSong() {
-        if (this.playerState.ready) {
-          this.player.nextSong()
-        }
-      }
-    }
   }
 
 </script>

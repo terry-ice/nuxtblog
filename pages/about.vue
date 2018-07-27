@@ -23,7 +23,7 @@
                        rel="external nofollow noopenter">
                       <i class="iconfont icon-mail"></i>
                     </a>
-                    <a href="https://github.com/surmon-china" 
+                    <a href="https://github.com/terry-ice" 
                        target="_blank" 
                        rel="external nofollow noopenter">
                       <i class="iconfont icon-github"></i>
