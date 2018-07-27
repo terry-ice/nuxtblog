@@ -1,3 +1,10 @@
+/*
+ * @Author: terry 
+ * @Date: 2018-07-27 14:13:07 
+ * @Last Modified by:   terryloveyan@gmail.com 
+ * @Last Modified time: 2018-07-27 14:13:07 
+ */
+
 import express from 'express'
 import { Nuxt, Builder } from 'nuxt'
 import bodyParser from 'body-parser';
