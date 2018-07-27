@@ -1,5 +1,5 @@
 import Background from './background.vue'
-import Header from './Feader.vue'
+import Header from './Header.vue'
 import Footer from './Footer.vue'
 import Share from './share.vue'
 import Aside from './aside.vue'
