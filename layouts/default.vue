@@ -207,7 +207,7 @@
           }
 
           &.full-column {
-            width: 62.5em;
+            width: 100%;
             @include css3-prefix(transition, width .35s);
           }
 

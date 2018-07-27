@@ -2501,10 +2501,6 @@ email-validator@^1.0.7:
   version "1.2.3"
   resolved "http://registry.npm.taobao.org/email-validator/download/email-validator-1.2.3.tgz#3e3aa65595e079a4686b41c004485a53638a6ed5"
 
-emoji-233333@^0.2.2:
-  version "0.2.2"
-  resolved "http://registry.npm.taobao.org/emoji-233333/download/emoji-233333-0.2.2.tgz#d6190364d2d8eaba54c07ec807bdb546d6165010"
-
 emojis-list@^2.0.0:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/emojis-list/download/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
@@ -8052,7 +8048,7 @@ webpack@^3.11.0:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-webrtc-adapter@^6.2.1:
+webrtc-adapter@^6.3.0:
   version "6.3.0"
   resolved "http://registry.npm.taobao.org/webrtc-adapter/download/webrtc-adapter-6.3.0.tgz#21083775b30320b8f73f37d92396896bdfc18ad8"
   dependencies:
