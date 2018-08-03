@@ -102,11 +102,11 @@
         try {
           if (document) return document.title
         } catch (err) {
-          return 'Surmon.me'
+          return 'terry'
         }
       },
       shareWindow(url) {
-        url = url.includes('mailto') ? url.replace(/\s|\||Surmon.me/g, '') : encodeURI(url)
+        url = url.includes('mailto') ? url.replace(/\s|\||terry/g, '') : encodeURI(url)
         // console.log(url)
         // 给打开的窗口命名
         const winName = 'newWin'

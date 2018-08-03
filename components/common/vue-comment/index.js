@@ -1,6 +1,6 @@
 /**
  * Vue-comment-box
- * @author Surmon.me
+ * @author terry
  */
 
 const vueComment = require('./comment.vue')

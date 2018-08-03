@@ -6,7 +6,7 @@
       <div class="logo">
         <img src="/images/app-logo.png" alt="app-logo">
       </div>
-      <h2 class="title">Surmon.me</h2>
+      <h2 class="title">terry</h2>
       <p class="desc">Talk is cheap. Show me the code</p>
       <div class="screen">
         <img src="/images/app-hot.png" class="screen-img" alt="app-hot">

@@ -1,6 +1,6 @@
 /**
  * Vue-loading
- * @author Surmon.me
+ * @author terry
  */
 
 const LoadingComponent = require('./loading.vue')

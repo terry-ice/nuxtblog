@@ -5,7 +5,7 @@
         <img :src="gravatar" alt="Surmon">
       </div>
       <div class="profile">
-        <h3 class="name">Surmon</h3>
+        <h3 class="name">Terry</h3>
         <p class="email">Talk is cheap. Show me the code</p>
       </div>
     </div>

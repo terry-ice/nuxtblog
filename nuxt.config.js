@@ -121,7 +121,7 @@ module.exports = {
       { name: 'HandheldFriendly', content: 'True' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
-      { name: 'apple-mobile-web-app-title', content: 'Surmon.me' },
+      { name: 'apple-mobile-web-app-title', content: 'terry' },
       { name: 'apple-touch-icon', content: '/static/icon.png' },
       { name: 'msapplication-TileImage', content: '/static/icon.png' },
       { name: 'msapplication-TileColor', content: '#0088f5' },

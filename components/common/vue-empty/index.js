@@ -1,6 +1,6 @@
 /**
  * Vue-empty
- * @author Surmon.me
+ * @author terry
  */
 
 const EmptyComponent = require('./empty.vue')
