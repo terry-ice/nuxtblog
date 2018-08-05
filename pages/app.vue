@@ -7,7 +7,7 @@
         <img src="/images/app-logo.png" alt="app-logo">
       </div>
       <h2 class="title">terry</h2>
-      <p class="desc">Talk is cheap. Show me the code</p>
+      <p class="desc">年华不虚度，一生已足以！</p>
       <div class="screen">
         <img src="/images/app-hot.png" class="screen-img" alt="app-hot">
         <div class="download">
