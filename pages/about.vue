@@ -10,7 +10,6 @@
                   <i class="iconfont icon-user"></i>
                   <span><span class="first-letter">I</span>'m terry, a (92+)  Javascript developer.</span>
                 </p>
-             
                 <p class="item">
                   <i class="iconfont icon-like"></i>
                   <span>code. beauty. life.</span>
