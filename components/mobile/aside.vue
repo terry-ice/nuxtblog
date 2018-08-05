@@ -35,7 +35,6 @@
     </div>
   </aside>
 </template>
-
 <script>
   export default {
     name: 'mobile-aside',
