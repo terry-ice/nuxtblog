@@ -15,21 +15,13 @@
           <i class="iconfont icon-home"></i>
           <span>Home</span>
         </nuxt-link>
-        <nuxt-link to="/category/code" class="item">
+        <nuxt-link to="/category" class="item">
           <i class="iconfont icon-code"></i>
-          <span>Code</span>
+          <span>Article</span>
         </nuxt-link>
         <nuxt-link to="/project" class="item">
           <i class="iconfont icon-tool"></i>
           <span>Project</span>
-        </nuxt-link>
-        <nuxt-link to="/category/think" class="item">
-          <i class="iconfont icon-think"></i>
-          <span>Think</span>
-        </nuxt-link>
-        <nuxt-link to="/sitemap" class="item">
-          <i class="iconfont icon-netease-music"></i>
-          <span>Sitemap</span>
         </nuxt-link>
         <nuxt-link to="/about" class="item">
           <i class="iconfont icon-user"></i>
@@ -38,35 +30,6 @@
         <nuxt-link to="/service" class="item">
           <i class="iconfont icon-zan-top"></i>
           <span>Service</span>
-        </nuxt-link>
-        <nuxt-link to="/guestbook" class="item guestbook">
-          <i class="iconfont icon-comment"></i>
-          <span>Guestbook</span>
-        </nuxt-link>
-        <a href="https://s.click.taobao.com/gzUaBYw" 
-           rel="external nofollow noopener"
-           class="item ad taobao"
-           target="_blank">
-          <i class="iconfont icon-taobao"></i>
-          <span>Taobao</span>
-        </a>
-        <a href="https://s.click.taobao.com/aFwPDTw" 
-           rel="external nofollow noopener"
-           class="item ad aliyun"
-           target="_blank">
-          <i class="iconfont icon-aliyun"></i>
-          <span>Aliyun</span>
-        </a>
-        <a href="https://errend.io"
-           rel="external nofollow noopener"
-           class="item ad errend"
-           target="_blank">
-          <i class="iconfont icon-debug"></i>
-          <span>Errend.io</span>
-        </a>
-        <nuxt-link to="/app" class="item app">
-          <i class="iconfont icon-app"></i>
-          <span>App</span>
         </nuxt-link>
       </nav>
     </div>
