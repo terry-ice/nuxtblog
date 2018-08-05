@@ -6,7 +6,7 @@
       </div>
       <div class="profile">
         <h3 class="name">Terry</h3>
-        <p class="email">Talk is cheap. Show me the code</p>
+        <p class="email">你的一生，我只送一程，这一程便是余生。</p>
       </div>
     </div>
     <div class="aside-nav">
