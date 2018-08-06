@@ -15,7 +15,7 @@
           <i class="iconfont icon-home"></i>
           <span>Home</span>
         </nuxt-link>
-        <nuxt-link to="/article" class="item">
+        <nuxt-link to="/sitemap" class="item">
           <i class="iconfont icon-code"></i>
           <span>Article</span>
         </nuxt-link>
