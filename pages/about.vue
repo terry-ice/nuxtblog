@@ -12,7 +12,7 @@
                 </p>
                 <p class="item">
                   <i class="iconfont icon-like"></i>
-                  <span>code. beauty. life.</span>
+                  <span>code beauty life.</span>
                 </p>
                 <p class="item">
                   <i class="iconfont icon-coffee"></i>
