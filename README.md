@@ -25,7 +25,7 @@ $ npm run generate
     //然后执行yarn build运行构建
     yarn build
     //然后通过pm2启动生产服务器
-    pm2 start start.js --env production
+    pm2 start npm --name "my-blog" -- run start
     //可以通过pm2查看服务器状态及运行日志
     pm2 show web
     pm2 logs web
