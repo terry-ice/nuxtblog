@@ -41,7 +41,7 @@
     "nuxt": "^1.4.0",
     "nuxt-i18n": "^2.6.1",
     "particles.js": "^2.0.0",
-    "sequelize": "^4.38.0",
+    "sequelize": "^5.8.6",
     "simplewebrtc": "^3.0.1",
     "socket.io": "^2.0.3",
     "socket.io-client": "^2.0.3",
